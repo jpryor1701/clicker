@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ddmhq8gvbce14"]
+
+[ext_resource type="Script" uid="uid://cp0p81awxvgg7" path="res://UI/beer_button/beer_button.gd" id="1_r04n3"]
+
+[node name="Button" type="Button" unique_id=1113410044]
+custom_minimum_size = Vector2(300, 150)
+offset_right = 300.0
+offset_bottom = 150.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_r04n3")
+amount_of_beers = 1
+sell_price = 1
+
+[node name="Label" type="Label" parent="." unique_id=1881464289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Serve X beers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

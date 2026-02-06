@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhrvtqyhqwprq"]
+
+[ext_resource type="Script" uid="uid://cpnanvb8sffs2" path="res://UI/upgrade_beer_amount_button/upgrade_beer_amount_button.gd" id="1_dd08k"]
+
+[node name="UpgradeBeerAmountButton" type="Button" unique_id=112363571]
+custom_minimum_size = Vector2(400, 80)
+offset_right = 200.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 32
+script = ExtResource("1_dd08k")
+
+[node name="Label" type="Label" parent="." unique_id=1924855843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Add more beers!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

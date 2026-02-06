@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dwfqhs05l5rny"]
+
+[ext_resource type="Script" uid="uid://dhxf24ijed48f" path="res://Scenes/beer_bottle/beer_bottle.gd" id="1_mvg07"]
+[ext_resource type="Texture2D" uid="uid://l3w40pq1it13" path="res://beer bottle.png" id="2_lqwp3"]
+
+[node name="BeerBottle" type="Node2D" unique_id=349174314]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_mvg07")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123478382]
+texture = ExtResource("2_lqwp3")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=166496422]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

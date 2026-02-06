@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://6ahi3dbsyget"]
+
+[ext_resource type="PackedScene" uid="uid://ddmhq8gvbce14" path="res://UI/beer_button/beer_button.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://b8wgn85jgmrbq" path="res://Managers/level_manager.gd" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://b7qq83pfj0w70" path="res://UI/gold_tracker/gold_tracker.tscn" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://bhrvtqyhqwprq" path="res://UI/upgrade_beer_amount_button/upgrade_beer_amount_button.tscn" id="4_vuhcl"]
+
+[node name="Level" type="Node2D" unique_id=1688429886]
+script = ExtResource("1_vonw3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2111873587]
+
+[node name="Button" parent="CanvasLayer" unique_id=1113410044 instance=ExtResource("1_u52ul")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+
+[node name="GoldTracker" parent="CanvasLayer" unique_id=1966809425 instance=ExtResource("3_oi3di")]
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 35.0
+offset_right = 52.0
+offset_bottom = 35.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=898806318]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="UpgradeBeerAmountButton" parent="CanvasLayer/VBoxContainer" unique_id=112363571 instance=ExtResource("4_vuhcl")]
+layout_mode = 2
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=598594734]
+position = Vector2(-146, 940)
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
