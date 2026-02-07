@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c6yh8a8uyuypm"]
+
+[ext_resource type="Script" uid="uid://u4lh303sn6s7" path="res://UI/upgrade_screen/upgrade_screen.gd" id="1_hvgc0"]
+[ext_resource type="PackedScene" uid="uid://bhrvtqyhqwprq" path="res://UI/upgrade_beer_amount_button/upgrade_beer_amount_button.tscn" id="2_0vyij"]
+
+[node name="UpgradeScreen" type="Control" unique_id=496505823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvgc0")
+
+[node name="Panel" type="Panel" parent="." unique_id=1752827839]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpgradeBeerAmountButton" parent="." unique_id=112363571 instance=ExtResource("2_0vyij")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -326.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitScreenButton" type="Button" parent="." unique_id=799465868]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 128.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "X"
+
+[connection signal="pressed" from="ExitScreenButton" to="." method="_on_exit_screen_button_pressed"]

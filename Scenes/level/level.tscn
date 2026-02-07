@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmhq8gvbce14" path="res://UI/beer_button/beer_button.tscn" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://b8wgn85jgmrbq" path="res://Managers/level_manager.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b7qq83pfj0w70" path="res://UI/gold_tracker/gold_tracker.tscn" id="3_oi3di"]
-[ext_resource type="PackedScene" uid="uid://bhrvtqyhqwprq" path="res://UI/upgrade_beer_amount_button/upgrade_beer_amount_button.tscn" id="4_vuhcl"]
+[ext_resource type="PackedScene" uid="uid://c6yh8a8uyuypm" path="res://UI/upgrade_screen/upgrade_screen.tscn" id="4_vuhcl"]
 
 [node name="Level" type="Node2D" unique_id=1688429886]
 script = ExtResource("1_vonw3")
@@ -30,18 +30,8 @@ offset_bottom = 35.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=898806318]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -400.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="UpgradeBeerAmountButton" parent="CanvasLayer/VBoxContainer" unique_id=112363571 instance=ExtResource("4_vuhcl")]
-layout_mode = 2
+[node name="UpgradeScreen" parent="CanvasLayer" unique_id=496505823 instance=ExtResource("4_vuhcl")]
+visible = false
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=598594734]
 position = Vector2(-146, 940)
