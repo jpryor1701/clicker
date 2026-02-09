@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c6yh8a8uyuypm"]
 
 [ext_resource type="Script" uid="uid://u4lh303sn6s7" path="res://UI/upgrade_screen/upgrade_screen.gd" id="1_hvgc0"]
-[ext_resource type="PackedScene" uid="uid://bhrvtqyhqwprq" path="res://UI/upgrade_beer_amount_button/upgrade_beer_amount_button.tscn" id="2_0vyij"]
+[ext_resource type="PackedScene" uid="uid://cu83h10ipau2o" path="res://UI/beer_amount_upgrade_button/beer_amount_upgrade_button.tscn" id="2_0vyij"]
+[ext_resource type="PackedScene" uid="uid://c028414non4yb" path="res://UI/beer_price_upgrade_button/beer_price_upgrade_button.tscn" id="3_fwohg"]
 
 [node name="UpgradeScreen" type="Control" unique_id=496505823]
 layout_mode = 3
@@ -12,24 +13,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hvgc0")
 
-[node name="Panel" type="Panel" parent="." unique_id=1752827839]
+[node name="Background" type="ColorRect" parent="." unique_id=252582832]
+custom_minimum_size = Vector2(1800, 900)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.37254903)
 
-[node name="UpgradeBeerAmountButton" parent="." unique_id=112363571 instance=ExtResource("2_0vyij")]
+[node name="Foreground" type="ColorRect" parent="." unique_id=534452358]
+custom_minimum_size = Vector2(1800, 900)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -326.0
-offset_bottom = -246.0
+offset_left = -900.0
+offset_top = -450.0
+offset_right = 900.0
+offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,10 +44,57 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_bottom = 128.0
+offset_left = -196.0
+offset_top = 95.0
+offset_right = -68.0
+offset_bottom = 223.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 64
 text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=703083486]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 116.0
+offset_right = 485.0
+offset_bottom = 196.0
+
+[node name="BeerAmountUpgradeButton" parent="VBoxContainer" unique_id=908456988 instance=ExtResource("2_0vyij")]
+layout_mode = 2
+
+[node name="BeerPriceUpgradeButton" parent="VBoxContainer" unique_id=474063700 instance=ExtResource("3_fwohg")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=60340050]
+layout_mode = 0
+offset_left = 1161.0
+offset_top = 144.0
+offset_right = 1629.0
+offset_bottom = 804.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1954435130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=187167951]
+layout_mode = 2
+
+[node name="Beers" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1559926689]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "stats 1"
+
+[node name="Beer Price" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=900361238]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "stats 1"
 
 [connection signal="pressed" from="ExitScreenButton" to="." method="_on_exit_screen_button_pressed"]

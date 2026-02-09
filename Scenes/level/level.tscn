@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6ahi3dbsyget"]
 
-[ext_resource type="PackedScene" uid="uid://ddmhq8gvbce14" path="res://UI/beer_button/beer_button.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://wkbwk82gdj0t" path="res://UI/beer_button/beer_button.tscn" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://b8wgn85jgmrbq" path="res://Managers/level_manager.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b7qq83pfj0w70" path="res://UI/gold_tracker/gold_tracker.tscn" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://c6yh8a8uyuypm" path="res://UI/upgrade_screen/upgrade_screen.tscn" id="4_vuhcl"]
@@ -10,16 +10,18 @@ script = ExtResource("1_vonw3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2111873587]
 
-[node name="Button" parent="CanvasLayer" unique_id=1113410044 instance=ExtResource("1_u52ul")]
+[node name="beer_button" parent="CanvasLayer" unique_id=908456988 instance=ExtResource("1_u52ul")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -75.0
-offset_right = 150.0
-offset_bottom = 75.0
+offset_left = -200.0
+offset_top = -40.0
+offset_right = 200.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GoldTracker" parent="CanvasLayer" unique_id=1966809425 instance=ExtResource("3_oi3di")]
 anchors_preset = 0
@@ -30,10 +32,37 @@ offset_bottom = 35.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="BeerStock" type="Label" parent="CanvasLayer" unique_id=1498411091]
+offset_left = 65.0
+offset_top = 102.0
+offset_right = 206.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 32
+text = "Stock: XX"
+
+[node name="BuyBeerButton" type="Button" parent="CanvasLayer" unique_id=54424172]
+offset_left = 1341.0
+offset_top = 113.0
+offset_right = 1665.0
+offset_bottom = 193.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BuyBeerButton" unique_id=1435459616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "buy 6 more beers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="UpgradeScreen" parent="CanvasLayer" unique_id=496505823 instance=ExtResource("4_vuhcl")]
 visible = false
 
 [node name="Spawner" type="Marker2D" parent="." unique_id=598594734]
 position = Vector2(-146, 940)
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/beer_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BuyBeerButton" to="." method="_on_buy_beer_button_pressed"]
