@@ -1,27 +1,23 @@
-extends Button
+class_name BeerButton
+extends GameButton
 
-@export var amount_of_beers: int
-@export var sell_price: int
-
-
-@onready var label: Label = $Label
 
 func _ready() -> void:
-	GlobalSignals.upgrade_beer_amount.connect(update_label)
+	#GlobalSignals.upgrade_beer_amount.connect(update_label)
+	GlobalSignals.beer_stats_update.connect(update_label)
 	update_label()
-	pass
 
 
-func _on_pressed() -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1.1, 1.1), .1)
-	tween.tween_property(self, "scale", Vector2(1, 1), .1)
-
-	GameData.stats["gold"] += GameData.beer_stats["sell_price"] * GameData.beer_stats["beers"]
+func button_interaction() -> void:
+	if GameData.beer_stats[GameData.beer_stats_enum.STOCK] <= 0:
+		return
+	GameData.game_stats[GameData.game_stats_enum.GOLD] += GameData.beer_stats[GameData.beer_stats_enum.SELL_PRICE] * GameData.beer_stats[GameData.beer_stats_enum.BEER]
+	GameData.beer_stats[GameData.beer_stats_enum.STOCK] -= GameData.beer_stats[GameData.beer_stats_enum.BEER]
+	GlobalSignals.beer_stats_update.emit()
 	GlobalSignals.gold_update.emit()
 
 
 func update_label() -> void:
-	label.text = "Sell %s beer" % GameData.beer_stats["beers"] \
-		if GameData.beer_stats["beers"] == 1 \
-		else "Sell %s beers" % GameData.beer_stats["beers"]
+	label.text = "Sell %s beer for %s gold" % [GameData.beer_stats[GameData.beer_stats_enum.BEER], GameData.beer_stats[GameData.beer_stats_enum.SELL_PRICE]] \
+		if GameData.beer_stats[GameData.beer_stats_enum.BEER] == 1 \
+		else "Sell %s beers for %s gold" % [GameData.beer_stats[GameData.beer_stats_enum.BEER], GameData.beer_stats[GameData.beer_stats_enum.SELL_PRICE]]

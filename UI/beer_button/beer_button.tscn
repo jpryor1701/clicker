@@ -1,28 +1,12 @@
-[gd_scene format=3 uid="uid://ddmhq8gvbce14"]
+[gd_scene format=3 uid="uid://wkbwk82gdj0t"]
 
+[ext_resource type="PackedScene" uid="uid://b27chj3l2bxtr" path="res://UI/game_button/game_button.tscn" id="1_1pvia"]
 [ext_resource type="Script" uid="uid://cp0p81awxvgg7" path="res://UI/beer_button/beer_button.gd" id="1_r04n3"]
 
-[node name="Button" type="Button" unique_id=1113410044]
-custom_minimum_size = Vector2(300, 150)
-offset_right = 300.0
-offset_bottom = 150.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="beer_button" unique_id=908456988 instance=ExtResource("1_1pvia")]
 script = ExtResource("1_r04n3")
-amount_of_beers = 1
-sell_price = 1
+button_text = ""
 
-[node name="Label" type="Label" parent="." unique_id=1881464289]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" parent="." index="0" unique_id=121545933]
 theme_override_font_sizes/font_size = 32
-text = "Serve X beers!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+autowrap_mode = 2

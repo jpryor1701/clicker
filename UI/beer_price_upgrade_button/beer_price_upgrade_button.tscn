@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c028414non4yb"]
+
+[ext_resource type="PackedScene" uid="uid://b27chj3l2bxtr" path="res://UI/game_button/game_button.tscn" id="1_tww6h"]
+[ext_resource type="Script" uid="uid://boww3bj7su33i" path="res://UI/beer_price_upgrade_button/beer_price_upgrade_button.gd" id="2_u2hao"]
+
+[node name="BeerPriceUpgradeButton" unique_id=908456988 instance=ExtResource("1_tww6h")]
+offset_right = 400.0
+offset_bottom = 120.0
+script = ExtResource("2_u2hao")
+button_text = ""
+
+[node name="Label" parent="." index="0" unique_id=121545933]
+theme_override_font_sizes/font_size = 32

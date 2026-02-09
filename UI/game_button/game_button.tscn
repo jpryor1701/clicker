@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b27chj3l2bxtr"]
+
+[ext_resource type="Script" uid="uid://cnq7i23ktnwig" path="res://UI/game_button/game_button.gd" id="1_c2ugi"]
+
+[node name="GameButton" type="Button" unique_id=908456988]
+clip_contents = true
+custom_minimum_size = Vector2(400, 80)
+offset_right = 8.0
+offset_bottom = 8.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_c2ugi")
+button_text = "test"
+
+[node name="Label" type="Label" parent="." unique_id=121545933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
